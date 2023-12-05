@@ -2,7 +2,6 @@ import sqlite3
 import pandas as pd
 import streamlit as st
 import pandas as pd
-from io import StringIO
 import openpyxl as openpyxl
 
 st.markdown("# save data from xlx file to SQL DB ")

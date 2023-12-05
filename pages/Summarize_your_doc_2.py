@@ -1,12 +1,8 @@
 from dotenv import load_dotenv
 import requests
 from PyPDF2 import PdfReader
-from langchain.text_splitter import CharacterTextSplitter
 import json
 import streamlit as st
-import openai as openapi
-import pandas as pd
- 
 url =st.secrets["AZURE_OPENAI_ENDPOINT_SUMMARY"]
 
 api_key =st.secrets["AZURE_OPENAI_API_KEY"]
