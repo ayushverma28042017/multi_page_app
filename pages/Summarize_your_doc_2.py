@@ -1,4 +1,4 @@
-
+from dotenv import load_dotenv
 import requests
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
@@ -7,10 +7,10 @@ import streamlit as st
 import openai as openapi
 import pandas as pd
  
-url = "https://azureopenaistudio-dyi2023uc1.openai.azure.com/openai/deployments/DYIPOC/completions?api-version=2023-09-15-preview"
+url =st.secrets["AZURE_OPENAI_ENDPOINT_SUMMARY"]
 
-api_key = "ca48cf88888441899bfd469aed24ec5c" 
- 
+api_key =st.secrets["AZURE_OPENAI_API_KEY"]
+
 headers = {
 
     "api-key": api_key,
@@ -39,6 +39,7 @@ data = {
  
 def main():
     # load_dotenv()
+    load_dotenv(".streamlit/secrets.toml")
     st.set_page_config(page_title="Summarize your PDF")
     st.header("Summarize your PDF 💬")
     
@@ -76,7 +77,7 @@ def main():
       else:
         st.write("Failed to fetch data") 
         st.write("Status code:", response.status_code)
-        st.write("Response:", response.choices)
+       
                  
 if __name__ == '__main__':
     main()

@@ -1,6 +1,4 @@
-
 import requests
-
 import json
 import streamlit as st
 
@@ -19,9 +17,9 @@ headers = {
  
 data = {
 
-    "prompt": "# Write a python function to reverse a string. The function should be an optimal solution in terms of time and space complexity.\n# Example input to the function: abcd123\n# Example output to the function: 321dcba",
+    "prompt": "### Postgres SQL tables, with their properties:\n#\n# Employee(id, name, department_id)\n# Department(id, name, address)\n# Salary_Payments(id, employee_id, amount, date)\n#\n### A query to list the names of the departments which employed more than 10 employees in the last 3 months\n\nSELECT",
 
-    "max_tokens": 150,
+    "max_tokens": 10,
 
     "temperature": 0.2,
 
@@ -38,8 +36,8 @@ data = {
 
 with st.form(key = 'userdata'):
         st.write('data')
-        prompt = st.text_input("Enter your python function:", key='prompt')
-        st.text("### EG :Write a python function to reverse a string. The function should be an optimal solution in terms of time and space complexity.\n# Example input to the function: abcd123\n# Example output to the function: 321dcba")
+        prompt = st.text_input("Enter your NLP For SQL:", key='prompt')
+        st.text("### Postgres SQL tables, with their properties:\n#\n# Employee(id, name, department_id)\n# Department(id, name, address)\n# Salary_Payments(id, employee_id, amount, date)\n#\n### A query to list the names of the departments which employed more than 10 employees in the last 3 months\n\nSELECT")
         submit_form = st.form_submit_button(label="submit", help="Click to submit")
         if submit_form:
             data = {
