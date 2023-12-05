@@ -7,9 +7,9 @@ import os as os
 
 load_dotenv(".streamlit/secrets.toml")
 # url=st.secrets["AZURE_OPENAI_ENDPOINT_NLP_TO_PYTHON"]
-url=os.environ.get["AZURE_OPENAI_ENDPOINT_NLP_TO_PYTHON"]
+url=os.environ.get("AZURE_OPENAI_ENDPOINT_NLP_TO_PYTHON")
 # api_key = st.secrets["AZURE_OPENAI_API_KEY"]
-api_key=os.environ.get["AZURE_OPENAI_API_KEY"]
+api_key=os.environ.get("AZURE_OPENAI_API_KEY")
 headers = {
 
     "api-key": api_key,
