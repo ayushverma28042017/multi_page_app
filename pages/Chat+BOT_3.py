@@ -7,7 +7,6 @@ import os as os
 
 load_dotenv(".streamlit/secrets.toml")
 
-# url=st.secrets["AZURE_OPENAI_ENDPOINT_CHAT"]
 url=os.environ["AZURE_OPENAI_ENDPOINT_CHAT"]
 
 # api_key = st.secrets["AZURE_OPENAI_API_KEY"]
