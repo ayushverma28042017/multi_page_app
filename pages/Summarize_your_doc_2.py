@@ -3,9 +3,17 @@ import requests
 from PyPDF2 import PdfReader
 import json
 import streamlit as st
-url =st.secrets["AZURE_OPENAI_ENDPOINT_SUMMARY"]
 
-api_key =st.secrets["AZURE_OPENAI_API_KEY"]
+from dotenv import load_dotenv
+import os as os
+
+
+load_dotenv(".streamlit/secrets.toml")
+# url =st.secrets["AZURE_OPENAI_ENDPOINT_SUMMARY"]
+url=os.environ["AZURE_OPENAI_ENDPOINT_SUMMARY"]
+
+# api_key =st.secrets["AZURE_OPENAI_API_KEY"]
+api_key=os.environ["AZURE_OPENAI_API_KEY"]
 
 headers = {
 

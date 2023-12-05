@@ -3,7 +3,11 @@ import pandas as pd
 import streamlit as st
 import pandas as pd
 import openpyxl as openpyxl
+from dotenv import load_dotenv
+import os as os
 
+
+load_dotenv(".streamlit/secrets.toml")
 st.markdown("# save data from xlx file to SQL DB ")
 st.sidebar.markdown("# save data from xls file to SQL DB ")
 st.sidebar.markdown("# to know the table schema enter PRAGMA table_info(mmyyddbb);")

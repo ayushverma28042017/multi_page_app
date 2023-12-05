@@ -1,11 +1,17 @@
 import requests
 import json
 import streamlit as st
+from dotenv import load_dotenv
+import os as os
 
 
-url=st.secrets["AZURE_OPENAI_ENDPOINT_CHAT"]
+load_dotenv(".streamlit/secrets.toml")
 
-api_key = st.secrets["AZURE_OPENAI_API_KEY"]
+# url=st.secrets["AZURE_OPENAI_ENDPOINT_CHAT"]
+url=os.environ["AZURE_OPENAI_ENDPOINT_CHAT"]
+
+# api_key = st.secrets["AZURE_OPENAI_API_KEY"]
+api_key=os.environ["AZURE_OPENAI_ENDPOINT_CHAT"]
  
 headers = {
 
