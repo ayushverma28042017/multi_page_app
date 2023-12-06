@@ -9,7 +9,7 @@ import os
 
 load_dotenv(".streamlit/secrets.toml")
 
-url=os.os.environ["AZURE_OPENAI_ENDPOINT_SUMMARY"]
+url=os.environ["AZURE_OPENAI_ENDPOINT_SUMMARY"]
 api_key=os.environ["AZURE_OPENAI_API_KEY"]
 
 headers = {

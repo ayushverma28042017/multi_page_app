@@ -4,7 +4,7 @@ import streamlit as st
 import pandas as pd
 import openpyxl as openpyxl
 from dotenv import load_dotenv
-import os as os
+import os 
 
 
 load_dotenv(".streamlit/secrets.toml")
