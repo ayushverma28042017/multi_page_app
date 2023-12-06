@@ -6,4 +6,3 @@ langchain==0.0.184
 altair==4
 pandas==2.0.0
 openpyxl ==3.1.2
-sqlite3==3.7.15
