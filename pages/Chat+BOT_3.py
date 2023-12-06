@@ -4,13 +4,10 @@ import streamlit as st
 from dotenv import load_dotenv
 import os as os
 
-
 load_dotenv(".streamlit/secrets.toml")
 
-url=os.environ.get("AZURE_OPENAI_ENDPOINT_CHAT")
-
-# api_key = st.secrets["AZURE_OPENAI_API_KEY"]
-api_key=os.environ.get("AZURE_OPENAI_API_KEY")
+url=os.environ["AZURE_OPENAI_ENDPOINT_CHAT"]
+api_key=os.environ["AZURE_OPENAI_API_KEY"]
  
 headers = {
 
@@ -20,20 +17,6 @@ headers = {
 
     }
  
-data = {
-
-    "messages": [{"role":"system","content":"which country is bigger Asia or Ameria."}],
-
-   "max_tokens": 800,
-  "temperature": 0.7,
-  "frequency_penalty": 0,
-  "presence_penalty": 0,
-  "top_p": 0.95,
-  "stop": ""
-
-}
- 
-
 with st.form(key = 'userdata'):
         st.write('data')
         prompt = st.text_input("How can I help you :", key='prompt')

@@ -7,10 +7,8 @@ import os as os
 
 load_dotenv(".streamlit/secrets.toml")
 
-# url=st.secrets["AZURE_OPENAI_ENDPOINT_NLP_TO_PYTHON"]
 url=os.environ.get("AZURE_OPENAI_ENDPOINT_NLP_TO_PYTHON")
-# api_key = st.secrets["AZURE_OPENAI_API_KEY"]
-api_key=os.environ.get("AZURE_OPENAI_API_KEY")
+api_key=os.environ["AZURE_OPENAI_API_KEY"]
 headers = {
 
     "api-key": api_key,
@@ -19,25 +17,6 @@ headers = {
 
     }
  
-data = {
-
-    "prompt": "### Postgres SQL tables, with their properties:\n#\n# Employee(id, name, department_id)\n# Department(id, name, address)\n# Salary_Payments(id, employee_id, amount, date)\n#\n### A query to list the names of the departments which employed more than 10 employees in the last 3 months\n\nSELECT",
-
-    "max_tokens": 10,
-
-    "temperature": 0.2,
-
-    "frequency_penalty": 0,
-
-    "presence_penalty": 0,
-
-    "top_p": 1,
-
-    "stop": ["#"]
-
-}
- 
-
 with st.form(key = 'userdata'):
         st.write('data')
         prompt = st.text_input("Enter your NLP For SQL:", key='prompt')

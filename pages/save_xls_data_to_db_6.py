@@ -37,6 +37,4 @@ if uploaded_file is not None:
             st.write(rows)
             con.close()
 
-# st.markdown("# Query SQL🎉")
-# st.sidebar.markdown("# Query SQL 🎉")
    

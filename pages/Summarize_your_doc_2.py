@@ -7,13 +7,10 @@ import streamlit as st
 from dotenv import load_dotenv
 import os as os
 
-
 load_dotenv(".streamlit/secrets.toml")
-# url =st.secrets["AZURE_OPENAI_ENDPOINT_SUMMARY"]
-url=os.environ.get("AZURE_OPENAI_ENDPOINT_SUMMARY")
 
-# api_key =st.secrets["AZURE_OPENAI_API_KEY"]
-api_key=os.environ.get("AZURE_OPENAI_API_KEY")
+url=os.os.environ["AZURE_OPENAI_ENDPOINT_SUMMARY"]
+api_key=os.environ["AZURE_OPENAI_API_KEY"]
 
 headers = {
 
@@ -23,26 +20,7 @@ headers = {
 
 }
  
-data = {
-
-    "prompt": "# Write a python function to reverse a string. The function should be an optimal solution in terms of time and space complexity.\n# Example input to the function: abcd123\n# Example output to the function: 321dcba",
-
-    "max_tokens": 150,
-
-    "temperature": 0.2,
-
-    "frequency_penalty": 0,
-
-    "presence_penalty": 0,
-
-    "top_p": 1,
-
-    "stop": ["#"]
-
-}
- 
 def main():
-    # load_dotenv()
     load_dotenv(".streamlit/secrets.toml")
     st.set_page_config(page_title="Summarize your PDF")
     st.header("Summarize your PDF 💬")

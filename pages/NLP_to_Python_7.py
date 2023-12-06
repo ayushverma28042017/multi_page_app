@@ -16,23 +16,6 @@ headers = {
 
     }
  
-data = {
-
-    "prompt": "# Write a python function to reverse a string. The function should be an optimal solution in terms of time and space complexity.\n# Example input to the function: abcd123\n# Example output to the function: 321dcba",
-
-    "max_tokens": 150,
-
-    "temperature": 0.2,
-
-    "frequency_penalty": 0,
-
-    "presence_penalty": 0,
-
-    "top_p": 1,
-
-    "stop": ["#"]
-
-}
  
 
 with st.form(key = 'userdata'):
