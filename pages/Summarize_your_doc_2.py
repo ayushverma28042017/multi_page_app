@@ -5,7 +5,7 @@ import json
 import streamlit as st
 
 from dotenv import load_dotenv
-import os as os
+import os
 
 load_dotenv(".streamlit/secrets.toml")
 
