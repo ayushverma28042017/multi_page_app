@@ -8,9 +8,9 @@ import os as os
 
 
 load_dotenv(".streamlit/secrets.toml")
-st.markdown("# save data from xlx file to SQL DB ")
-st.sidebar.markdown("# save data from xls file to SQL DB ")
-st.sidebar.markdown("# to know the table schema enter PRAGMA table_info(mmyyddbb);")
+st.text("# save data from xlx file to SQL DB ")
+st.text("# save data from xls file to SQL DB ")
+st.text("# To know the table schema enter PRAGMA table_info({dbname});")
 
 
 uploaded_file = st.file_uploader("Choose a file")

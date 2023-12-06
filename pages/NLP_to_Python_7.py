@@ -11,7 +11,6 @@ api_key=os.environ["AZURE_OPENAI_API_KEY"]
 headers = {
 
     "api-key": api_key,
-
     "Content-Type": "application/json"
 
     }
