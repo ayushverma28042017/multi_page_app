@@ -1,5 +1,5 @@
 import cohere 
-co = cohere.Client('MLZXavfC2EpNaW3dYRG5KwWPcMIvBUyabF1DPBgw') # This is your trial API key
+co = cohere.Client('') # This is your trial API key
 response = co.chat( 
   message='<YOUR MESSAGE HERE>',
   prompt_truncation='auto',
