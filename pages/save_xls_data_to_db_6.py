@@ -34,7 +34,7 @@ if uploaded_file is not None:
             con = sqlite3.connect(promptDb+".db")
             cur = con.cursor()
             rows = cur.execute(promptsql).fetchall()
-            st.write(rows)
+            st.write(rows.fetchone()
             con.close()
 
    
