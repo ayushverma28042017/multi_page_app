@@ -6,9 +6,12 @@ import os
 
 load_dotenv(".streamlit/secrets.toml")
 
-
-url=os.environ["AZURE_OPENAI_ENDPOINT_SUMMARY"]
-api_key=os.environ["AZURE_OPENAI_API_KEY"]
+api_key="ca48cf88888441899bfd469aed24ec5c"
+# AZURE_OPENAI_ENDPOINT_CHAT="https://azureopenaistudio-dyi2023uc1.openai.azure.com/openai/deployments/DYIPOC/chat/completions?api-version=2023-07-01-preview"
+url="https://azureopenaistudio-dyi2023uc1.openai.azure.com/openai/deployments/DYIPOC/completions?api-version=2023-09-15-preview"
+# AZURE_OPENAI_ENDPOINT_NLP_TO_PYTHON="https://azureopenaistudio-dyi2023uc1.openai.azure.com/openai/deployments/DYIPOC/completions?api-version=2023-09-15-preview"
+# url=os.environ["AZURE_OPENAI_ENDPOINT_SUMMARY"]
+# api_key=os.environ["AZURE_OPENAI_API_KEY"]
  
 headers = {
 
@@ -30,7 +33,7 @@ with st.form(key = 'userdata'):
                     "top_p": 1,
                     "frequency_penalty": 0,
                     "presence_penalty": 0,
-                     "max_tokens": 350,
+                     "max_tokens": 600,
                      "stop": ["#"]
                         
                 }
