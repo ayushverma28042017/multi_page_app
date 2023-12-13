@@ -3,7 +3,7 @@ import json
 import streamlit as st
 from dotenv import load_dotenv
 import os 
-import datetime
+# import datetime
 
 load_dotenv(".streamlit/secrets.toml")
 url=os.environ["AZURE_OPENAI_ENDPOINT_CHAT"]
@@ -16,8 +16,7 @@ headers = {
     "Content-Type": "application/json"
 }
 
-with open("history.txt", "a") as myfile:
-    myfile.write(datetime.now())
+
 with st.form(key = 'userdata'):
     # st.write('data')
     prompt = st.text_area("Enter your input  :", key='prompt')
@@ -47,11 +46,14 @@ with st.form(key = 'userdata'):
             st.write("Success!!!!")   
                 # st.write(response.json())
             st.write(response.json()["choices"][0]["message"]["content"])
-            myfile.write(prompt)
-            myfile.write("\n\n")
-            myfile.write(response.json()["choices"][0]["message"]["content"])
-            myfile.write("\n\n\n\n\n")
+            with open("history.txt", "a") as myfile:
+            #  myfile.write(datetime.now())
+             myfile.write(prompt)
+             myfile.write("\n\n")
+             myfile.write(response.json()["choices"][0]["message"]["content"])
+             myfile.write("\n\n\n\n\n")
       else:
+        
             st.write("Failed to fetch data") 
             st.write("Status code:", response.status_code)
             st.write("Response:", response.choices)
