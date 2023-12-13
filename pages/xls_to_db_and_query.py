@@ -31,10 +31,10 @@ if uploaded_file is not None:
         promptsql = st.text_input("Enter your sql:", key='promptsql')
         submit_form = st.form_submit_button(label="Execute", help="Click to execute query!")
         if submit_form:
-            con = sqlite3.connect(promptDb+".db")
-            cur = con.cursor()
-            rows = cur.execute(promptsql).fetchall()
-            st.write(rows.fetchone()
-            con.close()
+         con = sqlite3.connect(promptDb+".db")
+         cur = con.cursor()
+         rows = cur.execute(promptsql).fetchall()
+         st.write(rows.fetchone())
+         con.close()
 
    

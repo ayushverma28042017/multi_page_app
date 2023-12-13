@@ -27,6 +27,7 @@ def main():
     
     # upload file
     pdf = st.file_uploader("Upload your PDF", type="pdf")
+    words =st.write("Enter the number of words you want in summary ..")
     
     # extract the text
     if pdf is not None:
@@ -38,7 +39,7 @@ def main():
 
             "prompt": text,
 
-            "max_tokens": 150,
+            "max_tokens": words,
 
             "temperature": 0.2,
 
