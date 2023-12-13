@@ -35,7 +35,7 @@ with st.form(key = 'userdata'):
                     "top_p": 0.95,
                     "frequency_penalty": 0,
                     "presence_penalty": 0,
-                    "max_tokens": 800,
+                    "max_tokens": 250,
                     "stop": "None"
 }
       response = requests.post(url, headers=headers, data=json.dumps(data))   
