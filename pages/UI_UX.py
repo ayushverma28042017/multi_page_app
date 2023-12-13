@@ -43,7 +43,15 @@ with st.form(key = 'userdata'):
             st.write("Success!!!!")   
                 # st.write(response.json())
             st.write(response.json()["choices"][0]["message"]["content"])
+            with open("history.txt", "a") as myfile:
+            myfile.write(prompt)
       else:
             st.write("Failed to fetch data") 
             st.write("Status code:", response.status_code)
             st.write("Response:", response.choices)
+with st.form(key = 'history'): 
+     view_history = st.form_submit_button(label="view", help="Click to view")
+    if view_history:
+       f = open("demofile.txt", "r")
+        st.write(f.read()) 
+
