@@ -18,7 +18,7 @@ headers = {
     }
  
 with st.form(key = 'userdata'):
-        st.write('data')
+        # st.write('data')
         prompt = st.text_input("How can I help you :", key='prompt')
         st.text("### which country is bigger Asia or Ameria.")
         submit_form = st.form_submit_button(label="submit", help="Click to submit")

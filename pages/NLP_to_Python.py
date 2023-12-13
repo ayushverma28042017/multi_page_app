@@ -18,7 +18,7 @@ headers = {
  
 
 with st.form(key = 'userdata'):
-        st.write('data')
+        # st.write('data')
         prompt = st.text_input("Enter your python function:", key='prompt')
         st.text("### EG :Write a python function to reverse a string. The function should be an optimal solution in terms of time and space complexity.\n# Example input to the function: abcd123\n# Example output to the function: 321dcba")
         submit_form = st.form_submit_button(label="submit", help="Click to submit")

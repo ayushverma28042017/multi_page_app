@@ -18,7 +18,7 @@ headers = {
     }
  
 with st.form(key = 'userdata'):
-        st.write('data')
+        # st.write('data')
         prompt = st.text_input("Enter your NLP For SQL:", key='prompt')
         st.text("### Postgres SQL tables, with their properties:\n#\n# Employee(id, name, department_id)\n# Department(id, name, address)\n# Salary_Payments(id, employee_id, amount, date)\n#\n### A query to list the names of the departments which employed more than 10 employees in the last 3 months\n\nSELECT")
         submit_form = st.form_submit_button(label="submit", help="Click to submit")

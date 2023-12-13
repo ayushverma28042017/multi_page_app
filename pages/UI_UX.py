@@ -15,7 +15,7 @@ headers = {
     "Content-Type": "application/json"
 }
 with st.form(key = 'userdata'):
-    st.write('data')
+    # st.write('data')
     prompt = st.text_area("Enter your input  :", key='prompt')
     # input_data = "Create summary in 300 words in very simple english language without any grammar mistake ,simple sentence ,active voice and use more we and you and keep usage of promoun for below conversation between Financial Advisor and Customer :\n\nConversation:"+prompt
     submit_form = st.form_submit_button(label="submit", help="Click to submit")
