@@ -3,7 +3,7 @@ import json
 import streamlit as st
 from dotenv import load_dotenv
 import os 
-from datetime import datetime
+import datetime
 
 load_dotenv(".streamlit/secrets.toml")
 url=os.environ["AZURE_OPENAI_ENDPOINT_CHAT"]
