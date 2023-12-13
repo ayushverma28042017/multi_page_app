@@ -55,6 +55,6 @@ with st.form(key = 'userdata'):
 with st.form(key = 'history'): 
      view_history = st.form_submit_button(label="view", help="Click to view")
      if view_history:
-       f = open("demofile.txt", "r")
+       f = open("history.txt", "r")
        st.write(f.read()) 
 
