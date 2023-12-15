@@ -5,8 +5,9 @@ from dotenv import load_dotenv
 import os 
 
 load_dotenv(".streamlit/secrets.toml")
-url=os.environ["AZURE_OPENAI_ENDPOINT_CHAT"]
+url=os.environ["api_base"]
 api_key=os.environ["AZURE_OPENAI_API_KEY"]
+azureSearchKey=os.environ["azureSearchKey"]
  
 headers = {
 
@@ -24,14 +25,6 @@ with st.form(key = 'userdata'):
     {
       "role": "system",
       "content": "you are a Financial advisor and you need to create a summary for the user for all the questions and answers given by the user You need to follow the below instructions: \nuse short sentences- \nActive voice\nuse more we and write in a positive\nAvoid hidden verbs by being more direct and to the point"
-    },
-    {
-      "role": "user",
-      "content": "Can customer change his GIRO account?"
-    },
-    {
-      "role": "assistant",
-      "content": "Yes, the customer can change his GIRO account. For eligible policies, please refer to our website for instructions on how to set up GIRO payment. [doc4]"
     }
   ],
   "temperature": 0,
@@ -41,7 +34,7 @@ with st.form(key = 'userdata'):
   "max_tokens": 800,
   "stop": "#",
   "azureSearchEndpoint": "https://cognitive-search-dyi.search.windows.net",
-  "azureSearchKey": "***",
+  "azureSearchKey": azureSearchKey,
   "azureSearchIndexName": "premium-index"
 }
       response = requests.post(url, headers=headers, data=json.dumps(data))   
