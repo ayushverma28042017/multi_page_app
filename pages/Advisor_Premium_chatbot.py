@@ -21,28 +21,29 @@ with st.form(key = 'userdata'):
     # input_data = "Create summary in 300 words in very simple english language without any grammar mistake ,simple sentence ,active voice and use more we and you and keep usage of promoun for below conversation between Financial Advisor and Customer :\n\nConversation:"+prompt
     submit_form = st.form_submit_button(label="submit", help="Click to submit")
     if submit_form:
-      data = {"messages": [
-    {
-      "role": "system",
-      "content": "you are a Financial advisor and you need to create a summary for the user for all the questions and answers given by the user You need to follow the below instructions: \nuse short sentences- \nActive voice\nuse more we and write in a positive\nAvoid hidden verbs by being more direct and to the point"
-    },
-    
-    {
-      "role": "user",
-      "content": prompt
-    }
-    
-  ],
-  "model": "GPT-4",
-  "temperature": 0,
-  "top_p": 1,
-  "frequency_penalty": 0,
-  "presence_penalty": 0,
-  "max_tokens": 800,
-  "stop": "#",
-  "azureSearchEndpoint": "https://cognitive-search-dyi.search.windows.net",
-  "azureSearchKey": azureSearchKey,
-  "azureSearchIndexName": "premium-index"
+      data = {
+         "dataSources": [
+                {
+            "type": "AzureCognitiveSearch",
+            "parameters": {
+                "endpoint": "https://cognitive-search-dyi.search.windows.net",
+                "key": azureSearchKey,
+                "indexName": "premium-index"
+            }
+                 }
+    ],
+    "model": "GPT-4",
+    "messages": [
+        {
+            "role": "system",
+            "content": "you are a Financial advisor and you need to create a summary for the user for all the questions and answers given by the user You need to follow the below instructions: \nuse short sentences- \nActive voice\nuse more we and write in a positive\nAvoid hidden verbs by being more direct and to the point"
+        },
+        {
+            "role": "user",
+            "content": prompt
+        }
+    ]
+
 }
       response = requests.post(url, headers=headers, data=json.dumps(data))   
       if response.status_code == 200: 
