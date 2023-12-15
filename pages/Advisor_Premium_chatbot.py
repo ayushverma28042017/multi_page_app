@@ -48,7 +48,7 @@ with st.form(key = 'userdata'):
       response = requests.post(url, headers=headers, data=json.dumps(data))   
       if response.status_code == 200: 
             st.write("Success!!!!")   
-            st.write(response.json())
+            # st.write(response.json())
             st.write(response.json()["choices"][0]["message"]["content"])
       else:
             st.write("Failed to fetch data") 
