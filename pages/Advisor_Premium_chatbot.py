@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import os 
 
 load_dotenv(".streamlit/secrets.toml")
-url=os.environ["api_base"]
+url=os.environ["api_base_url"]
 api_key=os.environ["AZURE_OPENAI_API_KEY"]
 azureSearchKey=os.environ["azureSearchKey"]
  
@@ -26,12 +26,14 @@ with st.form(key = 'userdata'):
       "role": "system",
       "content": "you are a Financial advisor and you need to create a summary for the user for all the questions and answers given by the user You need to follow the below instructions: \nuse short sentences- \nActive voice\nuse more we and write in a positive\nAvoid hidden verbs by being more direct and to the point"
     },
+    
     {
       "role": "user",
       "content": prompt
     }
     
   ],
+  "model": "GPT-4",
   "temperature": 0,
   "top_p": 1,
   "frequency_penalty": 0,
