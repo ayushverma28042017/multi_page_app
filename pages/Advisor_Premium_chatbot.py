@@ -26,10 +26,10 @@ with st.form(key = 'userdata'):
       "role": "system",
       "content": "you are a Financial advisor and you need to create a summary for the user for all the questions and answers given by the user You need to follow the below instructions: \nuse short sentences- \nActive voice\nuse more we and write in a positive\nAvoid hidden verbs by being more direct and to the point"
     },
-    ,
     {
       "role": "user",
       "content": prompt
+    }
     
   ],
   "temperature": 0,
