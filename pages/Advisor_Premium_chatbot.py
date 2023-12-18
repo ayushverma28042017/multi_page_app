@@ -36,7 +36,7 @@ with st.form(key = 'userdata'):
     "messages": [
         {
             "role": "system",
-            "content": "you are a Financial advisor and you need to create a summary for the user for all the questions and answers given by the user You need to follow the below instructions: \nuse short sentences- \nActive voice\nuse more we and write in a positive\nAvoid hidden verbs by being more direct and to the point"
+            "content": "you are a Financial advisor assistant who helps people find information and responds in simple english . If the user asks you a question you don't know the answer to, say so"
         },
         {
             "role": "user",
