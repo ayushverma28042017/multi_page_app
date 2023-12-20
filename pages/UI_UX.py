@@ -23,8 +23,9 @@ def insert_data_in_db(data):
                                         name text NOT NULL
                                     );
                                       """
-    create_table(cxn, sql_createtable)
+    
     c = cxn.cursor()
+    c.execute(sql_createtable)
     c.execute("INSERT INTO UI_UX (response) VALUES (?)", (data)) 
     cxn.commit()
     cxn.close() 
