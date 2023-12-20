@@ -3,7 +3,7 @@ import json
 import streamlit as st
 from dotenv import load_dotenv
 import os 
-# import datetime
+import sqlite3
 
 load_dotenv(".streamlit/secrets.toml")
 url=os.environ["AZURE_OPENAI_ENDPOINT_CHAT"]
@@ -15,6 +15,13 @@ headers = {
 
     "Content-Type": "application/json"
 }
+
+def insert_data_in_db(data):
+    cxn = sqlite3.connect("UI_UX"+'.db')
+    c = cxn.cursor()
+    c.execute("INSERT INTO UI_UX (response) VALUES (?)", (data)) 
+    cxn.commit()
+    cxn.close() 
 
 
 with st.form(key = 'userdata'):
@@ -50,7 +57,8 @@ with st.form(key = 'userdata'):
             #  myfile.write(datetime.now())
              myfile.write(prompt)
              myfile.write("\n\n")
-             myfile.write(response.json()["choices"][0]["message"]["content"])
+            #  myfile.write()
+             insert_data_in_db(response.json()["choices"][0]["message"]["content"])
              myfile.write("\n\n\n\n\n")
       else:
         
@@ -60,6 +68,15 @@ with st.form(key = 'userdata'):
 with st.form(key = 'history'): 
      view_history = st.form_submit_button(label="view", help="Click to view")
      if view_history:
-       f = open("history.txt", "r")
-       st.write(f.read()) 
+        cxn = sqlite3.connect("UI_UX"+'.db')
+        c = cxn.cursor()
+        c.execute("select * from UI_UX" ) 
+        found_records = c.fetchall();
+        for record in found_records:
+            st.write(record)
+
+        cxn.commit()
+        cxn.close()
+
+
 
