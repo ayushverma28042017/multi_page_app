@@ -19,7 +19,6 @@ headers = {
 def insert_data_in_db(data):
     cxn = sqlite3.connect("UI_UX"+'.db')
     sql_createtable = """ CREATE TABLE IF NOT EXISTS UI_UX(
-                                        id integer PRIMARY KEY,
                                         name text NOT NULL
                                     );
                                       """
@@ -27,7 +26,9 @@ def insert_data_in_db(data):
     c = cxn.cursor()
     c.execute(sql_createtable)
     #INSERT INTO artists (name) VALUES('Bud Powell');
-    c.execute("INSERT INTO UI_UX VALUES ("+data+")")
+    # c.execute("insert into contacts (name) values"), (data)")
+    c.execute("insert into UI_UX (name) values (?)",
+            (data))
     cxn.commit()
     cxn.close() 
 
