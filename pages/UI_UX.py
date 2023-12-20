@@ -26,7 +26,7 @@ def insert_data_in_db(data):
     
     c = cxn.cursor()
     c.execute(sql_createtable)
-    c.execute("INSERT INTO UI_UX (response) VALUES (?)", (data)) 
+    c.execute("INSERT INTO UI_UX (name) VALUES (?)", (data)) 
     cxn.commit()
     cxn.close() 
 
