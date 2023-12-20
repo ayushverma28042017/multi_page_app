@@ -18,7 +18,7 @@ headers = {
 
 def insert_data_in_db(data):
     cxn = sqlite3.connect("UI_UX"+'.db')
-    sql_createtable = """ CREATE TABLE IF NOT EXISTS UI_UX (
+    sql_createtable = """ CREATE TABLE IF NOT EXISTS UI_UX(
                                         id integer PRIMARY KEY,
                                         name text NOT NULL
                                     );
