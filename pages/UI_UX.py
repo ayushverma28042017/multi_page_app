@@ -18,6 +18,12 @@ headers = {
 
 def insert_data_in_db(data):
     cxn = sqlite3.connect("UI_UX"+'.db')
+    sql_createtable = """ CREATE TABLE IF NOT EXISTS UI_UX (
+                                        id integer PRIMARY KEY,
+                                        name text NOT NULL
+                                    );
+                                      """
+    create_table(cxn, sql_createtable)
     c = cxn.cursor()
     c.execute("INSERT INTO UI_UX (response) VALUES (?)", (data)) 
     cxn.commit()
@@ -69,6 +75,7 @@ with st.form(key = 'history'):
      view_history = st.form_submit_button(label="view", help="Click to view")
      if view_history:
         cxn = sqlite3.connect("UI_UX"+'.db')
+   
         c = cxn.cursor()
         c.execute("select * from UI_UX" ) 
         found_records = c.fetchall();
