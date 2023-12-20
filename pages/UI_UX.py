@@ -27,8 +27,7 @@ def insert_data_in_db(data):
     c.execute(sql_createtable)
     #INSERT INTO artists (name) VALUES('Bud Powell');
     # c.execute("insert into contacts (name) values"), (data)")
-    c.execute("insert into UI_UX (name) values (?)",
-            (data))
+    c.execute("insert into UI_UX (name) values (?)",(data))
     cxn.commit()
     cxn.close() 
 
