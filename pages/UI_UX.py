@@ -28,11 +28,11 @@ def initdb():
 
 def insert_data_in_db(data):
  
-    #INSERT INTO artists (name) VALUES('Bud Powell');
-    # c.execute("insert into contacts (name) values"), (data)")
-    c.execute("insert into UIUX(name) values(?)",(data,))
-    cxn.commit()
-    cxn.close() 
+     cxn = sqlite3.connect("UIUX"+'.db')
+     c = cxn.cursor()
+     c.execute("insert into UIUX(name) values(?)",(data,))
+     cxn.commit()
+     cxn.close() 
 
 
 with st.form(key = 'userdata'):
