@@ -88,7 +88,7 @@ with st.form(key = 'history'):
         cxn = sqlite3.connect("UIUX"+'.db')
    
         c = cxn.cursor()
-        c.execute("select * from UIUX" ) 
+        c.execute("select name_id ,name  from UIUX" ) 
         found_records = c.fetchall();
         for record in found_records:
             st.write(record)
