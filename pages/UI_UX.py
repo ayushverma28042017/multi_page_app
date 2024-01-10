@@ -20,6 +20,8 @@ headers = {
 def initdb():
        cxn = sqlite3.connect("UIUX"+'.db')
        sql_createtable = """ CREATE TABLE IF NOT EXISTS UIUX(
+                                        name_id integer auto_increment primary key,
+                                        timestamp DATE DEFAULT (datetime('now','localtime')),
                                         name text NOT NULL
                                     );
                                       """
@@ -90,6 +92,7 @@ with st.form(key = 'history'):
         found_records = c.fetchall();
         for record in found_records:
             st.write(record)
+            st.write("\n")
 
         cxn.commit()
         cxn.close()
